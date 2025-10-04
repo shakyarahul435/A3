@@ -5,7 +5,8 @@ from src.src import *
 import joblib
 # Load local model
 
-local_path = "app/model/st125986-a3-model.pkl"
+local_path = "model/st125982-a3-model.pkl"
+
 predictor = joblib.load(local_path)
 # Wrap model for MLflow
 class CarPriceWrapper(mlflow.pyfunc.PythonModel):
