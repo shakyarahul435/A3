@@ -1,7 +1,7 @@
 import mlflow
 import pickle
 import pandas as pd
-from app.src.logistic_regression import *
+from src.src import *
 import joblib
 # Load local model
 
