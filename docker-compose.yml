@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  car-price-app:
+    build: .
+    container_name: car_price_predictor
+    ports:
+      - "8050:8050"  
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    volumes:
+      - .:/app
