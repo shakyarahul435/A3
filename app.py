@@ -30,7 +30,17 @@ sample = pd.Series({
 # Initialize Dash app
 app = dash.Dash(__name__)
 
-app.layout = html.Div([
+app.layout = html.Div(
+    style={
+        "fontFamily": "Arial, sans-serif",
+        "backgroundColor": "#f8f9fa",
+        "padding": "40px",
+        "maxWidth": "700px",
+        "margin": "auto",
+        "borderRadius": "15px",
+        "boxShadow": "0 4px 10px rgba(0,0,0,0.1)"
+    },
+    children=[
     html.H1("Car Price Class Prediction"),
     
     # html.Label("Brand"),
@@ -77,21 +87,38 @@ app.layout = html.Div([
         ],
         placeholder="Select Brand",
         value=sample['brand'],
-        style={"margin-bottom": "10px","width": "22rem"}
+        style={"width": "22rem"}
         ),
     ],style={"margin-top": "1rem"}),
-    ],style={"display": "inline-block","verticalAlign": "top","margin-right": "2rem"}),
+    ],style={"verticalAlign": "top","margin-right": "2rem", "height":'1.5rem', "fontSize":'1rem', "marginBottom": '1.5rem'}),
+    html.Br(),
     
-    html.Label("Year"),
-    dcc.Input(id='year', type='number', value=sample['year']),
+    html.Label(["Year"],style={"fontWeight": "bold"}),html.Br(),
+    dcc.Input(id='year', type='number', value=sample['year'],style={"margin-bottom": "10px", "height":'1.5rem', "fontSize":'1rem'}),
+    html.Br(),
     
-    html.Label("Engine (cc)"),
-    dcc.Input(id='engine', type='number', value=sample['engine']),
+    html.Label(["Engine (cc)"],style={"fontWeight": "bold"}),html.Br(),
+    dcc.Input(id='engine', type='number', value=sample['engine'],style={"margin-bottom": "10px", "height":'1.5rem', "fontSize":'1rem'}),
+    html.Br(),
     
-    html.Label("Max Power (HP)"),
-    dcc.Input(id='max_power', type='number', value=sample['max_power']),
+    html.Label(["Max Power (HP)"],style={"fontWeight": "bold"}),html.Br(),
+    dcc.Input(id='max_power', type='number', value=sample['max_power'],style={"margin-bottom": "10px", "height":'1.5rem', "fontSize":'1rem'}),
+    html.Br(),
     
-    html.Button("Predict", id='predict-btn', n_clicks=0),
+    html.Button("Predict", id='predict-btn', n_clicks=0, style={
+        "backgroundColor": "#007bff",
+        "color": "white",
+        "border": "none",
+        "padding": "10px 20px",
+        "textAlign": "center",
+        "textDecoration": "none",
+        "display": "inline-block",
+        "fontSize": "16px",
+        "marginTop": "20px",
+        "borderRadius": "5px",
+        "cursor": "pointer"
+    }),
+    html.Br(),
     
     html.H2("Prediction:"),
     dcc.Loading(
