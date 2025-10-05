@@ -88,13 +88,14 @@ class LogisticRegression:
 
 
 class CarPricePredictor:
-    def __init__(self, model, label_encoders):
+    def __init__(self, model, label_encoders, scaler):
         """
         model: trained ML model
         label_encoders: dict of fitted LabelEncoders for categorical columns
         """
         self.model = model
         self.label_encoders = label_encoders
+        self.scaler = scaler
 
     def preprocess(self, X_raw):
         """Encode categorical features using stored label encoders."""
@@ -105,6 +106,8 @@ class CarPricePredictor:
                 # Handle unseen categories by mapping to -1
                 X[col] = X[col].apply(lambda x: le.transform([x])[0] 
                                       if x in le.classes_ else -1)
+         # Scale numeric columns
+        X = self.scaler.transform(X)
         return X
 
     def predict(self, X_raw):
