@@ -7,7 +7,7 @@ from src.src import *
 MODEL_URI = "model/st125982-a3-model.pkl"
 loaded_model = joblib.load(MODEL_URI)
 sample = pd.Series({
-    'brand': 20,
+    'brand': "Maruti",
     'year': 2014,
     'engine': 1248,
     'max_power': 74

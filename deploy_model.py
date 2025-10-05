@@ -18,7 +18,7 @@ class CarPriceWrapper(mlflow.pyfunc.PythonModel):
 
 # Example input for MLflow schema
 sample = pd.Series({
-    'brand': 20,
+    'brand': "Maruti",
     'year': 2014,
     'engine': 1248,
     'max_power': 74

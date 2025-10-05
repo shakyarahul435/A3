@@ -125,6 +125,8 @@ def predict(n_clicks, brand, year, engine, max_power):
             'engine': engine,
             'max_power': max_power
         }])
+        print("Input DataFrame for Prediction:")
+        print(input_df)
         prediction = model.predict(input_df)
         return f"Predicted Price Class: {prediction[0]}"
     return "No prediction yet."
